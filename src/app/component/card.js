@@ -1,43 +1,54 @@
 "use client";
 
-import React from "react";
-import { ImUsers } from "react-icons/im";
-import{RiGroupFill} from "react-icons/ri"
-import {GiAmericanFootballHelmet} from "react-icons/gi"
+import React, { useEffect } from "react";
+import { FaRegUser } from "react-icons/fa";
+import { LuUsers2 } from "react-icons/lu"
+import { GiAmericanFootballHelmet } from "react-icons/gi"
 
 const Card = () => {
+  const data = [{
+    nouser: 44,
+    noteam: 5,
+    nomatch: 3
+  }]
+
+
   return (
-    <div className="flex flex-wrap">
+    <div>
+      {data.map((value)=>(
+      <div className="flex flex-wrap">
 
-      <div className="flex m-2 p-5 shadow-md rounded">
-        <div className="mr-2">
-          <h5 className="">NO of User</h5>
-          <h1 className="text-3xl">44</h1>
+        <div className="flex flex-col justify-center items-center my-2 mx-5 p-5 shadow-md h-40 w-40 rounded">
+          <div className="flex justify-center items-center h-16 w-16 p-3">
+            <FaRegUser className="h-16 w-16 text-orange-500" />
+          </div>
+          <div className="flex flex-col justify-center items-center">
+            <h1 className="text-3xl">{value.nouser}</h1>
+            <h6 className="text-xs">Number of User</h6>
+          </div>
         </div>
-        <div className="rounded-full flex justify-center items-center bg-[#0e9570] h-10 w-10 p-3">
-          <ImUsers className="h-10 w-10 text-white" />
+
+        <div className="flex flex-col justify-center items-center my-2 mx-5 p-5 shadow-md h-40 w-40  rounded">
+          <div className="flex justify-center items-center h-16 w-16 p-3">
+            <LuUsers2 className="h-10 w-10 text-[#fa4326]" />
+          </div>
+          <div className="flex flex-col justify-center items-center">
+            <h1 className="text-3xl">{value.noteam}</h1>
+            <h5 className="text-xs">Number of Team's</h5>
+          </div>
+        </div>
+
+        <div className="flex flex-col justify-center items-center my-2 mx-5 p-5 h-40 w-40  shadow-md rounded">
+          <div className="flex justify-center items-center h-16 w-16 p-3">
+            <GiAmericanFootballHelmet className="h-14 w-14 text-[#f29000]" />
+          </div>
+          <div className="flex flex-col justify-center items-center">
+            <h1 className="text-3xl">{value.nomatch}</h1>
+            <h5 className="text-xs">Number of Match's</h5>
+          </div>
         </div>
       </div>
-
-      <div className="flex m-2 p-5 shadow-md rounded">
-        <div className="mr-2">
-          <h5 className="">NO of Team's</h5>
-          <h1 className="text-3xl">04</h1>
-        </div>
-        <div className="rounded-full flex justify-center items-center bg-[#fa4326] h-10 w-10 p-3">
-          <RiGroupFill className="h-10 w-10 text-white" />
-        </div>
-      </div>
-
-      <div className="flex m-2 p-5 shadow-md rounded">
-        <div className="mr-2">
-          <h5 className="">NO of Match's</h5>
-          <h1 className="text-3xl">05</h1>
-        </div>
-        <div className="rounded-full flex justify-center items-center bg-[#f29000] h-10 w-10 p-3">
-          <GiAmericanFootballHelmet className="h-14 w-14 text-white" />
-        </div>
-      </div>
+     ) )}
 
     </div>
   );
